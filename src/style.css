@@ -1,0 +1,241 @@
+:root {
+  --purple-bg: hsl(256, 67%, 59%);
+  --light-purple: hsl(254, 88%, 90%);
+  --yellow-bg: hsl(39, 100%, 71%);
+  --cream-bg: hsl(31, 66%, 93%);
+  --white-bg: hsl(0, 0%, 100%);
+  --text-family: "DM Sans", sans-serif;
+  --font-500: 500;
+  --font-400: 400;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0.5rem;
+  background-color: #80808033;
+  font-family: var(--text-family);
+}
+
+h1 {
+  font-size: clamp(3rem, 3.5rem, 4rem);
+  line-height: 1;
+  font-weight: var(--font-500);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.wrapper {
+  display: grid;
+  gap: 1rem;
+  max-inline-size: 1200px;
+  margin-inline: auto;
+  grid-template-areas:
+    "post-1 post-2 post-2 post-3"
+    "post-1 post-4 post-5 post-3"
+    "post-6 post-4 post-5 post-3"
+    "post-6 post-7 post-8 post-8";
+
+  @media (width < 900px) {
+    grid-template-areas:
+      "post-2"
+      "post-4"
+      "post-5"
+      "post-3"
+      "post-8"
+      "post-7"
+      "post-1"
+      "post-6";
+  }
+}
+
+.wrapper > * {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  align-content: start;
+  align-items: start;
+  justify-items: start;
+  text-align: start;
+  overflow: clip;
+  border-radius: 10px;
+}
+
+.wrapper img {
+  max-width: var(--image-width, 100%);
+  width: var(--image-width, 100%);
+  order: var(--image-order);
+}
+
+p,
+h2,
+span {
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-family: var(--text-family);
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+h2 {
+  line-height: 1;
+  text-wrap: balance;
+  font-size: clamp(1rem, 2rem, 2.5rem);
+  font-family: "DM Sans", sans-serif;
+}
+
+.social,
+.followers {
+  color: hsl(0, 0%, 100%);
+}
+
+.create,
+.schedule,
+.write,
+.manage,
+.maintain,
+.faster {
+  color: hsl(0, 0%, 7%);
+}
+
+.create {
+  grid-area: post-1;
+  background-color: hsl(31, 66%, 93%);
+  align-content: center;
+  align-items: center;
+  --image-width: 60%;
+
+  @media (width > 900px) {
+    --image-width: 80%;
+  }
+}
+
+.social {
+  grid-area: post-2;
+  background-color: var(--purple-bg);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: clamp(1rem, 1.75rem, 2rem);
+  --image-width: 60%;
+
+  @media (width > 900px) {
+    --image-width: 35%;
+  }
+}
+
+.schedule {
+  grid-area: post-3;
+  background-color: var(--light-purple);
+  align-content: center;
+  justify-items: start;
+  align-items: center;
+
+  --image-width: 100%;
+
+  p {
+    font-weight: var(--font-500);
+  }
+}
+
+.write {
+  grid-area: post-6;
+  background-color: var(--yellow-bg);
+  align-content: center;
+  align-items: center;
+  --image-width: 70%;
+
+  @media (width > 900px) {
+    --image-width: 110%;
+  }
+}
+
+.manage {
+  grid-area: post-4;
+  background-color: var(--white-bg);
+  --image-order: -1;
+
+  img {
+    filter: drop-shadow(0 0 1rem hsl(0 0% 0% / 0.25));
+    border-radius: 100vw;
+  }
+
+  @media (width > 900px) {
+    --image-width: 150%;
+  }
+}
+
+.maintain {
+  grid-area: post-5;
+  background-color: var(--yellow-bg);
+
+  img {
+    margin-bottom: -55px;
+    --image-with: 70%;
+  }
+  @media (width > 900px) {
+    img {
+      margin-bottom: -110px;
+      --image-width: 100%;
+    }
+  }
+}
+
+.faster {
+  grid-area: post-7;
+  background-color: hsl(0, 0%, 100%);
+  --image-width: 60%;
+  h2 {
+    font-size: 3rem;
+  }
+
+  span {
+    display: block;
+    font-size: 1.1rem;
+  }
+
+  @media (width > 900px) {
+    --image-width: 80%;
+    align-content: space-evenly;
+  }
+}
+
+.followers {
+  grid-area: post-8;
+  background-color: var(--purple-bg);
+  gap: 1rem;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  --image-width: 70%;
+  text-align: center;
+
+  @media (width > 900px) {
+    grid-template-columns: 1fr 1fr;
+    --image-width: 100%;
+    gap: 1rem;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: start;
+  }
+}
+
+.gold-text {
+  color: hsl(39, 100%, 71%);
+}
+
+.purple-text {
+  color: hsl(256, 67%, 59%);
+}
+

@@ -46,7 +46,6 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       <img src="/assets/illustration-ai-content.webp" />
     </div>
 
-
   </div>
 `;
 
